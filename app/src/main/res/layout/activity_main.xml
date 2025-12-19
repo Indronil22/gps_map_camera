@@ -1,38 +1,85 @@
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="#000">
+    android:layout_height="match_parent">
 
+    <!-- CAMERA PREVIEW -->
     <androidx.camera.view.PreviewView
         android:id="@+id/previewView"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"/>
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
 
-    <LinearLayout
-        android:layout_alignParentBottom="true"
-        android:layout_width="match_parent"
-        android:layout_height="90dp"
-        android:background="#66000000"
-        android:gravity="center"
-        android:orientation="horizontal">
+    <!-- IMAGE PREVIEW -->
+    <ImageView
+        android:id="@+id/imagePreview"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:visibility="gone"
+        android:scaleType="fitCenter"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
 
-        <Button
-            android:id="@+id/btnSwitch"
-            android:text="↺"
-            android:textSize="24sp"
-            android:layout_margin="20dp"
-            android:layout_width="60dp"
-            android:layout_height="60dp"/>
+    <!-- CAPTURE -->
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btnCapture"
+        android:text="📸"
+        android:textColor="@android:color/white"
+        android:background="@drawable/bg_overlay_50"
+        app:backgroundTint="@null"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="80dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
 
-        <Button
-            android:id="@+id/btnCapture"
-            android:text="●"
-            android:textSize="28sp"
-            android:textColor="#FFFFFF"
-            android:backgroundTint="#FF0000"
-            android:layout_width="80dp"
-            android:layout_height="80dp"/>
+    <!-- SWITCH CAMERA -->
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btnSwitch"
+        android:text="🔄"
+        android:textColor="@android:color/white"
+        android:background="@drawable/bg_overlay_50"
+        app:backgroundTint="@null"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="16dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
 
-    </LinearLayout>
+    <!-- SHARE -->
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btnShare"
+        android:text="📤"
+        android:textColor="@android:color/white"
+        android:background="@drawable/bg_overlay_50"
+        app:backgroundTint="@null"
+        android:visibility="gone"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="16dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"/>
 
-</RelativeLayout>
+    <!-- RETAKE -->
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btnRetake"
+        android:text="🔁"
+        android:textColor="@android:color/white"
+        android:background="@drawable/bg_overlay_50"
+        app:backgroundTint="@null"
+        android:visibility="gone"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="80dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
